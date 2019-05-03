@@ -92,9 +92,12 @@ static int default_callback (const char __attribute__((unused)) *str,
     }
     else if (data->ds_type & UTILS_MATCH_CF_GAUGE_AVERAGE)
     {
+      INFO("O valor do parâmetro é: %d", value);
       double f = ((double) data->values_num)
 	/ ((double) (data->values_num + 1));
+      INFO("O valor de f é %d", f);
       data->value.gauge = (data->value.gauge * f) + (value * (1.0 - f));
+      INFO("O valor de Value_nums é %d", data->values_num);
     }
     else if (data->ds_type & UTILS_MATCH_CF_GAUGE_MIN)
     {
